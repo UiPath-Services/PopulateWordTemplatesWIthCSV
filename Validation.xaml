@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1096,3765</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>982,3272</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -88,7 +88,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This is the step to validate the given template file and CSV has valid file path and content" DisplayName="Validation" sap:VirtualizedContainerService.HintSize="606,3700" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This is the step to validate the given template file and CSV has valid file path and content" DisplayName="Validation" sap:VirtualizedContainerService.HintSize="604,3207" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="pathFound" />
       <Variable x:TypeArguments="sd:DataTable" Name="InputDT" />
@@ -101,9 +101,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Start Message" sap:VirtualizedContainerService.HintSize="564,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Validation started&quot;]" />
-    <ui:PathExists DisplayName="Word Template Path Exists" Exists="[pathFound]" sap:VirtualizedContainerService.HintSize="564,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_wordTemplateFilePath]" PathType="File" />
-    <If Condition="[Not pathFound]" DisplayName="If Cannot Find Word Template File Path" sap:VirtualizedContainerService.HintSize="564,247" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LogMessage DisplayName="Log Start Message" sap:VirtualizedContainerService.HintSize="562,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Validation started&quot;]" />
+    <ui:PathExists DisplayName="Word Template Path Exists" Exists="[pathFound]" sap:VirtualizedContainerService.HintSize="562,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_wordTemplateFilePath]" PathType="File" />
+    <If Condition="[Not pathFound]" DisplayName="If Cannot Find Word Template File Path" sap:VirtualizedContainerService.HintSize="562,247" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -114,7 +114,7 @@
         <Throw DisplayName="Exception - Invalid Word Template File Path" Exception="[new Exception(&quot;Cannot find Word template file path: &quot;+in_wordTemplateFilePath)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
       </If.Then>
     </If>
-    <If Condition="[Path.GetExtension(in_wordTemplateFilePath) &lt;&gt; &quot;.docx&quot;]" DisplayName="Check Word File Ext" sap:VirtualizedContainerService.HintSize="564,247" sap2010:WorkflowViewState.IdRef="If_5">
+    <If Condition="[Path.GetExtension(in_wordTemplateFilePath) &lt;&gt; &quot;.docx&quot;]" DisplayName="Check Word File Ext" sap:VirtualizedContainerService.HintSize="562,247" sap2010:WorkflowViewState.IdRef="If_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -125,8 +125,8 @@
         <Throw DisplayName="Exception - Invalid Word File Type" Exception="[new Exception(&quot;The given Word template has a invalid file type. Expected: .docx&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_9" />
       </If.Then>
     </If>
-    <ui:PathExists DisplayName="CSV Path Exists" Exists="[pathFound]" sap:VirtualizedContainerService.HintSize="564,89" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_CSVFilePath]" PathType="File" />
-    <If Condition="[Not pathFound]" DisplayName="If Cannot Find CSV File Path" sap:VirtualizedContainerService.HintSize="564,247" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:PathExists DisplayName="CSV Path Exists" Exists="[pathFound]" sap:VirtualizedContainerService.HintSize="562,89" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_CSVFilePath]" PathType="File" />
+    <If Condition="[Not pathFound]" DisplayName="If Cannot Find CSV File Path" sap:VirtualizedContainerService.HintSize="562,247" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -137,7 +137,7 @@
         <Throw DisplayName="Exception - Invalid CSV File Path" Exception="[new Exception(&quot;Cannot find CSV file path: &quot;+in_CSVFilePath)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_6" />
       </If.Then>
     </If>
-    <If Condition="[Path.GetExtension(in_CSVFilePath) &lt;&gt; &quot;.csv&quot;]" DisplayName="Check CSV File Ext" sap:VirtualizedContainerService.HintSize="564,247" sap2010:WorkflowViewState.IdRef="If_6">
+    <If Condition="[Path.GetExtension(in_CSVFilePath) &lt;&gt; &quot;.csv&quot;]" DisplayName="Check CSV File Ext" sap:VirtualizedContainerService.HintSize="562,247" sap2010:WorkflowViewState.IdRef="If_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -148,8 +148,8 @@
         <Throw DisplayName="Exception - Invalid CSV File Type" Exception="[new Exception(&quot;The given CSV file has a invalid file type. Expected: .csv&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_10" />
       </If.Then>
     </If>
-    <ui:PathExists DisplayName="Output Folder Exists" Exists="[pathFound]" sap:VirtualizedContainerService.HintSize="564,89" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[in_outputFolderPath]" PathType="Folder" />
-    <If Condition="[Not pathFound]" DisplayName="If Cannot Find Output Folder Path" sap:VirtualizedContainerService.HintSize="564,247" sap2010:WorkflowViewState.IdRef="If_3">
+    <ui:PathExists DisplayName="Output Folder Exists" Exists="[pathFound]" sap:VirtualizedContainerService.HintSize="562,89" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[in_outputFolderPath]" PathType="Folder" />
+    <If Condition="[Not pathFound]" DisplayName="If Cannot Find Output Folder Path" sap:VirtualizedContainerService.HintSize="562,247" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -160,7 +160,7 @@
         <Throw DisplayName="Exception - Invalid Output Folder Path" Exception="[new Exception(&quot;Cannot find output folder path: &quot;+in_outputFolderPath)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_8" />
       </If.Then>
     </If>
-    <TryCatch DisplayName="Try Validate CSV File Content" sap:VirtualizedContainerService.HintSize="564,759" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Validate CSV File Content" sap:VirtualizedContainerService.HintSize="562,266" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -183,10 +183,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,104" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -199,29 +199,29 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <Sequence DisplayName="Validate Keyword Match" sap:VirtualizedContainerService.HintSize="564,694" sap2010:WorkflowViewState.IdRef="Sequence_22">
+    <Sequence DisplayName="Validate Keyword Match" sap:VirtualizedContainerService.HintSize="562,694" sap2010:WorkflowViewState.IdRef="Sequence_22">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <p:DocumentReadText DisplayName="Read Text" FilePath="[in_wordTemplateFilePath]" sap:VirtualizedContainerService.HintSize="520,92" sap2010:WorkflowViewState.IdRef="DocumentReadText_1" Text="[templateText]" />
-      <ui:Matches BuilderPattern="\{\{(\S+)\}\}" DisplayName="Keyword Matches" sap:VirtualizedContainerService.HintSize="520,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[templateText]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\{\\{(\\S+)\\}\\}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\{\{(\S+)\}\}" RegexOption="IgnoreCase, Compiled" Result="[matches]" />
+      <ui:Matches BuilderPattern="\{\{([^\}]+)\}\}" DisplayName="Keyword Matches" sap:VirtualizedContainerService.HintSize="520,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[templateText]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\{\\{([^\\}]+)\\}\\}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\{\{([^\}]+)\}\}" RegexOption="IgnoreCase, Compiled" Result="[matches]" />
       <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each Match" sap:VirtualizedContainerService.HintSize="520,371" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[matches]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="str:Match">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="str:Match" Name="match" />
             </ActivityAction.Argument>
-            <If Condition="[Not InputDT.Columns.Contains(match.Groups(1).Value)]" DisplayName="If Target Keyword Doesn't Exist" sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[Not InputDT.Columns.Contains(match.Groups(1).Value)]" DisplayName="If Target Keyword Doesn't Exist" sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_9">
               <If.Then>
-                <Throw DisplayName="Throw Target Column Missing" Exception="[new Exception(&quot;'&quot;+match.Groups(1).Value+&quot;' colulmn is missing in CSV file.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_14" />
+                <Throw DisplayName="Throw Target Column Missing" Exception="[new Exception(&quot;'&quot;+match.Groups(1).Value+&quot;' colulmn is missing in CSV file.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_15" />
               </If.Then>
             </If>
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <ui:LogMessage DisplayName="Log End Message" sap:VirtualizedContainerService.HintSize="564,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Validation passed.&quot;]" />
+    <ui:LogMessage DisplayName="Log End Message" sap:VirtualizedContainerService.HintSize="562,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Validation passed.&quot;]" />
   </Sequence>
 </Activity>

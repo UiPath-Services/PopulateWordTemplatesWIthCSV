@@ -1,6 +1,6 @@
 {
-  "name": "PopulateWordTemplatesWithCSV",
-  "description": "Mac-compatible Populate Word Templates Using Excel Specifications",
+  "name": "Mac-compatible Populate Word Templates Using Excel Specifications",
+  "description": "This Mac-compatible automation creates Word documents from a template using information from a CSV file. \r\n \r\nPlease download the CSV and Word templates from the Marketplace listing. \r\nhttps://marketplace.uipath.com/listings/ mac-compatible-populate-word-templates-using-excel",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.12.2-preview]",

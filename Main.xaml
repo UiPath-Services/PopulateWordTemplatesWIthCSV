@@ -1,13 +1,25 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_CSVFilePath="SampleFiles/SampleCSV.csv" this:Main.in_wordTemplateFilePath="SampleFiles/SampleTemplate.docx" this:Main.in_outputFolderPath="TempOutput" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.Word_template_filepath="SampleFiles/SampleTemplate.docx" this:Main.CSV_input_filepath="SampleFiles/SampleCSV.csv" this:Main.Output_folderpath="TempOutput" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_CSVFilePath" Type="InArgument(x:String)" />
-    <x:Property Name="in_wordTemplateFilePath" Type="InArgument(x:String)" />
-    <x:Property Name="in_outputFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="Word_template_filepath" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="CSV_input_filepath" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="Output_folderpath" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1096,2477</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>982,2477</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -93,7 +105,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This Mac-compatible automation creates Word documents from a template using information from a CSV file&#xA;&#xA;Arguments:&#xA;in_CSVFilePath - Complete file path of the CSV file&#xA;in_wordTemplateFilePath - Complete file path of the word template file&#xA;in_outputFolderPath - folder path for the generated word documents" DisplayName="Main" sap:VirtualizedContainerService.HintSize="588,2412" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This Mac-compatible automation creates Word documents from a template using information from a CSV file&#xA;&#xA;Arguments:&#xA;CSV_input_filepath - Complete file path of the CSV file&#xA;Word_template_filepath - Complete file path of the word template file&#xA;Output_folderpath - folder path for the generated word documents" DisplayName="Main" sap:VirtualizedContainerService.HintSize="588,2412" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="InputDT" />
       <Variable x:TypeArguments="x:Int32" Name="columnCount" />
@@ -106,12 +118,12 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Validation workflow" sap:VirtualizedContainerService.HintSize="546,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Validation.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_wordTemplateFilePath">[in_wordTemplateFilePath]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_CSVFilePath">[in_CSVFilePath]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_outputFolderPath">[in_outputFolderPath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_wordTemplateFilePath">[Word_template_filepath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CSVFilePath">[CSV_input_filepath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_outputFolderPath">[Output_folderpath]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ReadCsvFile DataTable="[InputDT]" Delimitator="Comma" DisplayName="Read Input CSV" FilePath="[in_CSVFilePath]" sap:VirtualizedContainerService.HintSize="546,153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <ui:ReadCsvFile DataTable="[InputDT]" Delimitator="Comma" DisplayName="Read Input CSV" FilePath="[CSV_input_filepath]" sap:VirtualizedContainerService.HintSize="546,153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
     <Assign DisplayName="Assign Column Count" sap:VirtualizedContainerService.HintSize="546,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[columnCount]</OutArgument>
@@ -142,7 +154,7 @@
                 <OutArgument x:TypeArguments="x:String">[currentFilePath]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[Path.Combine(in_OutputFolderPath,CurrentRow("Filename").ToString+".docx")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[Path.Combine(Output_folderpath,CurrentRow("Filename").ToString+".docx")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:FileExistsX DisplayName="Check if File Name Exists" Exists="[foundExistingFile]" sap:VirtualizedContainerService.HintSize="470,132" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[currentFilePath]" />
@@ -175,14 +187,14 @@
                       <OutArgument x:TypeArguments="x:String">[currentFilePath]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[Path.Combine(in_OutputFolderPath,CurrentRow("Filename").ToString+"("+fileNameIdx.ToString+").docx")]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[Path.Combine(Output_folderpath,CurrentRow("Filename").ToString+"("+fileNameIdx.ToString+").docx")]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <ui:FileExistsX DisplayName="Check if New File Name Exists" Exists="[foundExistingFile]" sap:VirtualizedContainerService.HintSize="384,132" sap2010:WorkflowViewState.IdRef="FileExistsX_2" Path="[currentFilePath]" />
                 </Sequence>
               </ui:InterruptibleWhile.Body>
             </ui:InterruptibleWhile>
-            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[currentFilePath]" DisplayName="Create New File Based On Template" sap:VirtualizedContainerService.HintSize="470,158" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[in_WordTemplateFilePath]" />
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[currentFilePath]" DisplayName="Create New File Based On Template" sap:VirtualizedContainerService.HintSize="470,158" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[Word_template_filepath]" />
             <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each Column" sap:VirtualizedContainerService.HintSize="470,216" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Enumerable.Range(0,columnCount)]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Int32">
