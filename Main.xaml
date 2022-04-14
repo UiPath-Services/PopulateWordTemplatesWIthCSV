@@ -19,7 +19,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>982,2477</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>977,2477</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -105,7 +105,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This Mac-compatible automation creates Word documents from a template using information from a CSV file&#xA;&#xA;Arguments:&#xA;CSV_input_filepath - Complete file path of the CSV file&#xA;Word_template_filepath - Complete file path of the word template file&#xA;Output_folderpath - folder path for the generated word documents" DisplayName="Main" sap:VirtualizedContainerService.HintSize="588,2412" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This Mac-compatible automation creates Word documents from a template using information from a CSV file.&#xA;&#xA;Arguments:&#xA;CSV_input_filepath - Complete file path of the CSV file&#xA;Word_template_filepath - Complete file path of the word template file&#xA;Output_folderpath - folder path for the generated word documents" DisplayName="Main" sap:VirtualizedContainerService.HintSize="588,2412" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="InputDT" />
       <Variable x:TypeArguments="x:Int32" Name="columnCount" />
