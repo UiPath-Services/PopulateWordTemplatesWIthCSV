@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>982,3272</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>977,3688</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -88,12 +88,13 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This is the step to validate the given template file and CSV has valid file path and content" DisplayName="Validation" sap:VirtualizedContainerService.HintSize="604,3207" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This is the step to validate the given template file and CSV has valid file path and content" DisplayName="Validation" sap:VirtualizedContainerService.HintSize="604,3623" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="pathFound" />
       <Variable x:TypeArguments="sd:DataTable" Name="InputDT" />
       <Variable x:TypeArguments="x:String" Name="templateText" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
+      <Variable x:TypeArguments="x:Boolean" Name="outputFolderFound" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -102,6 +103,12 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Start Message" sap:VirtualizedContainerService.HintSize="562,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Validation started&quot;]" />
+    <ui:PathExists DisplayName="Output folder Exists" Exists="[outputFolderFound]" sap:VirtualizedContainerService.HintSize="562,89" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[in_outputFolderPath]" PathType="Folder" />
+    <If Condition="[Not outputFolderFound]" DisplayName="If Cannot Find Output folder" sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_10">
+      <If.Then>
+        <Throw DisplayName="Exception - Invalid Output folder" Exception="[new Exception(&quot;Cannot find Output folder: &quot;+in_outputFolderPath)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_16" />
+      </If.Then>
+    </If>
     <ui:PathExists DisplayName="Word Template Path Exists" Exists="[pathFound]" sap:VirtualizedContainerService.HintSize="562,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_wordTemplateFilePath]" PathType="File" />
     <If Condition="[Not pathFound]" DisplayName="If Cannot Find Word Template File Path" sap:VirtualizedContainerService.HintSize="562,247" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
